@@ -1,0 +1,11 @@
+## Ignore IDE folder
+.idea
+
+## Ignore the node_modules folder
+node_modules
+
+## Ignore the typings folder
+typings
+
+## Ignore the build files
+build

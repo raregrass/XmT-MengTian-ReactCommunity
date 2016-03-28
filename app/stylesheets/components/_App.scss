@@ -1,0 +1,62 @@
+.xmt-main-header {
+    .material-icons {
+        color: #767777;
+    }
+
+    background-color: white;
+
+    .xmt-header__logo {
+        height: 28px;
+        width: 140px;
+    }
+
+    .mdl-navigation__link {
+        color: #757575;
+        font-weight: 700;
+        font-size: 16px;
+        display: inline-block;
+        height: 60px;
+
+        position: relative;
+
+        &::before {
+            position: absolute;
+            left: 50%;
+            height: 0.25em;
+            bottom: 0;
+
+            background-color: #6ab344;
+            width: 0;
+
+            transition: all 0.4s ease;
+
+            content: "";
+        }
+
+        &:hover {
+            cursor: pointer;
+
+            &::before {
+                width: 4em;
+                margin-left: -2em;
+            }
+        }
+    }
+}
+
+.xmt-main-drawer {
+    .mdl-layout__title {
+        color: #6ab344;
+    }
+
+    .mdl-navigation__link {
+        color: #757575;
+        font-weight: 700;
+        font-size: 14px;
+    }
+}
+
+.xmt-main-content {
+
+}
+

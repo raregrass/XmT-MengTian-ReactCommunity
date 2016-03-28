@@ -1,0 +1,129 @@
+.xmt-about {
+
+    .xmt-first-section {
+        position: relative;
+        height: 800px;
+        width: auto;
+        background-color: #f3f3f3;
+        background: url('../images/slide01.jpg') center 30% no-repeat;
+        background-size: cover;
+
+        .xmt-logo-font {
+            font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            line-height: 1;
+            color: #767777;
+            font-weight: 500;
+        }
+
+        .xmt-main-slogan {
+            font-size: 60px;
+            padding-top: 160px;
+        }
+
+        .xmt-sub-slogan {
+            font-size: 21px;
+            padding-top: 24px;
+        }
+
+        .xmt-create-world {
+            font-size: 21px;
+            padding-top: 400px;
+
+            a {
+                text-decoration: none;
+                color: #767777;
+                font-weight: 300;
+            }
+        }
+
+        .xmt-fab {
+            position: absolute;
+            right: 20%;
+            bottom: -26px;
+            z-index: 3;
+            background: #64ffda !important;
+            color: black !important;
+        }
+
+        @media (max-width: 900px) {
+            & {
+                height: 350px;
+            }
+
+            .xmt-main-slogan {
+                font-size: 26px;
+                margin: 0 16px;
+                padding-top: 24px;
+            }
+
+            .xmt-sub-slogan {
+                font-size: 16px;
+                margin: 0 16px;
+                padding-top: 8px;
+            }
+
+            .xmt-create-world {
+                padding-top: 200px;
+                font-size: 16px;
+
+                img {
+                    height: 12px;
+                }
+            }
+
+            .xmt-fab {
+                display: none;
+            }
+        }
+    }
+
+    .xmt-second-section {
+        position: relative;
+        padding-top: 60px;
+        padding-bottom: 80px;
+
+        .xmt-showcases {
+            padding-top: 50px;
+
+            width: 100%;
+            white-space: nowrap;
+            overflow-x: auto;
+
+            text-align: center;
+
+            .xmt-showcase {
+                display: inline-block;
+
+                .xmt-image-link {
+                    text-decoration: none;
+
+                    .xmt-image {
+                        padding: 0 20px;
+                        width: 300px;
+                        height: 300px;
+                    }
+                }
+
+                .xmt-link {
+                    margin: 16px 0;
+                    display: block;
+                    z-index: 2;
+                }
+            }
+        }
+
+        @media all and (max-width: 900px) {
+            .xmt-slogan {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .xmt-mega-footer {
+        background-color: #fafafa;
+    }
+
+    .xmt-mini-footer {
+
+    }
+}

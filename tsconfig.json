@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es5",
+    "jsx": "react",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noImplicitReturns": true,
+    // Workaround for Webstorm Typescript check system
+    "outDir": "temp"
+  },
+  "exclude": [
+    "typings/browser",
+    "typings/browser.d.ts",
+    "node_modules"
+  ]
+}
