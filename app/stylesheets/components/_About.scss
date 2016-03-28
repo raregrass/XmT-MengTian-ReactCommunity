@@ -119,11 +119,50 @@
         }
     }
 
-    .xmt-mega-footer {
-        background-color: #fafafa;
+    .xmt-third-section {
+        background-color: #37474f;
+
+        > .xmt-image {
+            height: 500px;
+            width: 100%;
+            background-color: white;
+        }
+
+        > .xmt-info {
+            max-width: 800px;
+            margin-left: 25%;
+            padding: 30px 0;
+            color: white;
+
+            .xmt-first-text {
+                padding-bottom: 30px;
+            }
+
+            .xmt-third-text {
+                text-decoration: none;
+                color: #64ffda;
+                font-size: 16px;
+
+                i {
+                    position: relative;
+                    top: 6px;
+                }
+            }
+        }
     }
 
-    .xmt-mini-footer {
+    .xmt-last-section {
+        padding: 80px 0;
+        max-width: 1044px;
+        margin: 0 auto;
 
+        .xmt-title {
+            margin-left: 14px;
+            padding-bottom: 24px;
+        }
+    }
+
+    .xmt-mega-footer {
+        background-color: #fafafa;
     }
 }

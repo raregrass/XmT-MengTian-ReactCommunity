@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Component, PropTypes} from "react";
 
-import {ArticleCard} from "./index";
+import {CardArticle} from "./index";
 
 /*************************************************************************/
 interface Props{
@@ -15,7 +15,7 @@ export class Social extends Component<Props, Stats>{
                 
                 { [0, 1, 2, 3, 4, 5, 6, 7].map(()=>{
                     return (
-                        <ArticleCard/>
+                        <CardArticle/>
                     )
                 }) }
             

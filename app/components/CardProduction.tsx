@@ -8,7 +8,7 @@ interface Props{
 }
 interface Stats{
 }
-export class ProductionCard extends Component<Props, Stats>{
+export class CardProduction extends Component<Props, Stats>{
     constructor(){
         super();
     }

@@ -8,11 +8,11 @@ interface Props{
 }
 interface Stats{
 }
-export class ArticleCard extends Component<Props, Stats>{
+export class CardArticle extends Component<Props, Stats>{
     constructor(){
         super();
     }
-
+    
     public render(){
         return (
             <div key={Date.now()} className="xmt-article-card mdl-card mdl-shadow--4dp">

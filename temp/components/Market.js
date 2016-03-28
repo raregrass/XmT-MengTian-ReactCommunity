@@ -23,9 +23,9 @@ var Market = (function (_super) {
         };
     }
     Market.prototype.render = function () {
-        return (React.createElement("div", {className: "xmt-market"}, React.createElement("div", {className: "mdl-grid"}, [0, 1, 2, 3, 4, 5, 6, 7].map(function () {
-            return (React.createElement(index_1.ProductionCard, null));
-        }))));
+        return (React.createElement("div", {className: "xmt-market mdl-grid"}, [0, 1, 2, 3, 4, 5, 6, 7].map(function () {
+            return (React.createElement(index_1.CardProduction, null));
+        })));
     };
     return Market;
 }(react_1.Component));

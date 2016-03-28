@@ -12,7 +12,7 @@ var ProductionCardList = (function (_super) {
         _super.apply(this, arguments);
     }
     ProductionCardList.prototype.render = function () {
-        return (React.createElement("div", null, React.createElement("h1", null, "This is ProductionCard!")));
+        return (React.createElement("div", null, React.createElement("h1", null, "This is CardProduction!")));
     };
     return ProductionCardList;
 }(react_1.Component));

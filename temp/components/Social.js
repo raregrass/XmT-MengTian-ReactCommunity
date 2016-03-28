@@ -24,7 +24,7 @@ var Social = (function (_super) {
     }
     Social.prototype.render = function () {
         return (React.createElement("div", {className: "xmt-social"}, [0, 1, 2, 3, 4, 5, 6, 7].map(function () {
-            return (React.createElement(index_1.ArticleCard, null));
+            return (React.createElement(index_1.CardArticle, null));
         })));
     };
     return Social;

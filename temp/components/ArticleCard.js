@@ -28,4 +28,4 @@ var ArticleCard = (function (_super) {
     return ArticleCard;
 }(react_1.Component));
 exports.ArticleCard = ArticleCard;
-//# sourceMappingURL=ArticleCard.js.map
+//# sourceMappingURL=CardArticle.js.map
