@@ -44,4 +44,4 @@ var About = (function (_super) {
     return About;
 }(react_1.Component));
 exports.About = About;
-//# sourceMappingURL=About.js.map
+//# sourceMappingURL=Home.js.map

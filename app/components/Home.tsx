@@ -12,7 +12,7 @@ interface Props{
 interface Stats{
     footer:string;
 }
-export class About extends Component<Props, Stats>{
+export class Home extends Component<Props, Stats>{
     constructor(){
         super();
 
@@ -92,11 +92,11 @@ export class About extends Component<Props, Stats>{
                     <div className="xmt-title mdl-typography--display-1-color-contrast">
                         了解小馒头
                     </div>
-
+                    
                     <div className="xmt-container mdl-grid">
-                        { [0, 1, 2, 3].map(()=>{
+                        { [0, 1, 2, 3].map((key)=>{
                             return (
-                            <CardIntroduction/>
+                            <CardIntroduction key={key}/>
                                 )
                             }) }
                     </div>

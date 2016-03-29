@@ -36,19 +36,19 @@ export class App extends Component<Props, Stats>{
                         {/* Navigation. We hide it in small screens. */}
                         <nav className="mdl-navigation mdl-layout--large-screen-only">
                             <IndexLink to="/">
-                                <span className="mdl-navigation__link">社 区</span>
+                                <span className="mdl-navigation__link">首 页</span>
                             </IndexLink>
-                            <Link to="/market">
-                                <span className="mdl-navigation__link">淘 器</span>
-                            </Link>
                             <Link to="/world">
                                 <span className="mdl-navigation__link">世 界</span>
+                            </Link>
+                            <Link to="/market">
+                                <span className="mdl-navigation__link">商 城</span>
                             </Link>
                             <Link to="/education">
                                 <span className="mdl-navigation__link">教 育</span>
                             </Link>
-                            <Link to="/about">
-                                <span className="mdl-navigation__link">关 于</span>
+                            <Link to="/community">
+                                <span className="mdl-navigation__link">社 区</span>
                             </Link>
                         </nav>
 
@@ -68,7 +68,7 @@ export class App extends Component<Props, Stats>{
         )
     }
 
-    private componentDidUpdate = () =>{
+    public componentDidUpdate = () =>{
         // This upgrades all upgradable components (i.e. with 'mdl-js-*' className)
         componentHandler.upgradeDom();
 

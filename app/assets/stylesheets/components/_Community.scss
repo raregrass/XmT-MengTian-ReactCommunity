@@ -1,14 +1,22 @@
 .xmt-community {
-    .mdl-grid {
-        max-width: 1300px;
-    }
+    max-width: 1300px;
+    margin: auto;
 
     .xmt-swiper-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
         .mdl-card {
             width: 100%;
 
             .swiper-slide {
                 width: 100%;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
             }
         }
     }
@@ -22,6 +30,7 @@
 
                 img {
                     width: 100%;
+                    height: auto;
                 }
             }
         }

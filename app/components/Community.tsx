@@ -18,14 +18,15 @@ export class Community extends Component<Props, Stats>{
 
                 <div className="mdl-grid">
 
-                    <div className="xmt-swiper-list mdl-cell mdl-cell--3-col-desktop mdl-cell--hide-phone">
+                    <div className="xmt-swiper-big mdl-cell mdl-cell--8-col-desktop mdl-cell--stretch mdl-cell--8-col-tablet">
+                        {this.getSwiper(bigImage)}
+                    </div>
+
+                    <div className="xmt-swiper-list mdl-cell mdl-cell--4-col-desktop mdl-cell--8-col-tablet mdl-cell--hide-phone">
                         {this.getSwiper(smallImage)}
                         {this.getSwiper(smallImage)}
                     </div>
 
-                    <div className="xmt-swiper-big mdl-cell mdl-cell--9-col-desktop mdl-cell--stretch">
-                        {this.getSwiper(bigImage)}
-                    </div>
 
                 </div>
 
@@ -45,9 +46,7 @@ export class Community extends Component<Props, Stats>{
 
     public getSwiper = (image:any)=>{
         return (
-            <a href="#!"><img src={image}/></a>
-
-            /*<div className="mdl-card mdl-shadow--4dp">
+            <div className="mdl-card mdl-shadow--4dp">
                 <div className="mdl-card__media">
                     <div ref="swiper" className="swiper-container">
                         <div className="swiper-wrapper">
@@ -58,7 +57,7 @@ export class Community extends Component<Props, Stats>{
                         <div className="swiper-pagination"></div>
                     </div>
                 </div>
-            </div>*/
+            </div>
         );
     };
 
@@ -76,6 +75,14 @@ export class Community extends Component<Props, Stats>{
     public componentDidUpdate = () =>{
         // This upgrades all upgradable components (i.e. with 'mdl-js-*' className)
         componentHandler.upgradeDom();
+
+        let mySwiper = new Swiper(this.refs["swiper"] as Element, {
+            // Optional parameters
+            loop: true,
+
+            // If we need pagination
+            pagination: '.swiper-pagination'
+        });
     }
 }
 

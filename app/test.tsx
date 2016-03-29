@@ -5,18 +5,18 @@ import {Router, Route, IndexRoute, browserHistory} from "react-router";
 // Main stylesheet.
 import "./assets/stylesheets/main.scss";
 
-import {App, Community, Market, About} from "./components/index";
+import {App, Community, Market, Home} from "./components/index";
 
 /**********************************************************************************************************************/
 
 render(
     <Router history={browserHistory}>
         <Route path="/" component={App}>
-            <IndexRoute component={Community}/>
-            <Route path="market" component={Market}/>
+            <IndexRoute component={Home}/>
             <Route path="world" component="null"/>
+            <Route path="market" component={Market}/>
             <Route path="education" component="null"/>
-            <Route path="about" component={About}/>
+            <Route path="community" component={Community}/>
         </Route>
     </Router>,
     document.getElementById("app")
