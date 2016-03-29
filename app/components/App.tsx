@@ -3,7 +3,7 @@ import {Component, PropTypes} from "react";
 
 import {Link, IndexLink} from "react-router";
 
-import * as logo from "../stylesheets/images/android-logo.png";
+const logo = require("../assets/images/android-logo.png");
 
 /*************************************************************************/
 interface Props{

@@ -59,7 +59,7 @@ module.exports = {
     devtool: "inline-source-map",
     devServer: {
         host: "0.0.0.0",
-        port: "9999",
+        port: "9988",
         contentBase: PATHS.build,
         historyApiFallback: true,
         inline: true,

@@ -12,12 +12,10 @@ export class Market extends Component<Props, Stats>{
     public render(){
         return (
             <div className="xmt-market mdl-grid">
-                
-                    { [0,1,2,3,4,5,6,7].map(()=>{
-                        return (
-                        <CardProduction/>
-                            )
-                        }) }
+
+                { [0, 1, 2, 3, 4, 5, 6, 7].map((key)=>{
+                    return <CardProduction key={key}/>;
+                }) }
 
             </div>
         )

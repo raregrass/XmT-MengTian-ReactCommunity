@@ -1,8 +1,8 @@
 "use strict";
 var App_1 = require("./App");
 exports.App = App_1.App;
-var Social_1 = require("./Social");
-exports.Social = Social_1.Social;
+var Community_1 = require("./Community");
+exports.Community = Community_1.Community;
 var Market_1 = require("./Market");
 exports.Market = Market_1.Market;
 var About_1 = require("./About");

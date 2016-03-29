@@ -5,7 +5,6 @@
     "target": "es5",
     "jsx": "react",
     "sourceMap": true,
-    "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
     "noImplicitReturns": true,
     // Workaround for Webstorm Typescript check system

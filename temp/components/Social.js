@@ -30,4 +30,4 @@ var Social = (function (_super) {
     return Social;
 }(react_1.Component));
 exports.Social = Social;
-//# sourceMappingURL=Social.js.map
+//# sourceMappingURL=Community.js.map

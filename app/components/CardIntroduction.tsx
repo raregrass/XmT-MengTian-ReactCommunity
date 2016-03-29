@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Component, PropTypes} from "react";
 
-import * as image from "../stylesheets/images/more-from-1.png";
+const image = require("../assets/images/more-from-1.png");
 
 /*************************************************************************/
 interface Props{

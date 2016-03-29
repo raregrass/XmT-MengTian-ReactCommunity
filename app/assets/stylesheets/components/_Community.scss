@@ -1,0 +1,29 @@
+.xmt-community {
+    .mdl-grid {
+        max-width: 1300px;
+    }
+
+    .xmt-swiper-list {
+        .mdl-card {
+            width: 100%;
+
+            .swiper-slide {
+                width: 100%;
+            }
+        }
+    }
+
+    .xmt-swiper-big {
+        .mdl-card {
+            width: 100%;
+
+            .swiper-slide {
+                width: 100%;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

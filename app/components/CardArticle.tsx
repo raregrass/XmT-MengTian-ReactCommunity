@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Component, PropTypes} from "react";
 
-import * as image from "../stylesheets/images/more-from-2.png";
+const image = require("../assets/images/more-from-2.png");
 
 /*************************************************************************/
 interface Props{
@@ -12,11 +12,11 @@ export class CardArticle extends Component<Props, Stats>{
     constructor(){
         super();
     }
-    
+
     public render(){
         return (
-            <div key={Date.now()} className="xmt-article-card mdl-card mdl-shadow--4dp">
-
+            <div className="xmt-article-card mdl-card mdl-shadow--4dp">
+                
                 <div className="xmt-top mdl-card__actions mdl-card--border">
                     <div className="mdl-list">
                         <div className="mdl-list__item">

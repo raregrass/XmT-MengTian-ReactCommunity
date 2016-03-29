@@ -7,7 +7,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 var React = require("react");
 var react_1 = require("react");
 var react_router_1 = require("react-router");
-var logo = require("../stylesheets/images/android-logo.png");
+var logo = require("../assets/images/android-logo.png");
 var App = (function (_super) {
     __extends(App, _super);
     function App() {

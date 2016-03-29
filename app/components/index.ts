@@ -1,5 +1,5 @@
 export {App} from "./App";
-export {Social} from "./Social";
+export {Community} from "./Community";
 export {Market} from "./Market";
 export {About} from "./About";
 export {CardArticle} from "./CardArticle";
