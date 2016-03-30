@@ -52,7 +52,6 @@ module.exports = {
     },
 
     plugins: [
-        // TODO: For now, I can't use typescript compiler to achieve HMR function.
         new webpack.HotModuleReplacementPlugin()
     ],
 
@@ -65,7 +64,6 @@ module.exports = {
         inline: true,
         colors: true,
         stats: "errors-only",
-        // TODO: See plugins.HMR
         hot: true
     }
 };
