@@ -25,8 +25,8 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.scss$/,
-                loader: "style!css!postcss!resolve-url!sass?sourceMap"
+                test: /\.less$/,
+                loader: "style!css!postcss!less"
             },
             {
                 test: /\.(png|jpg)$/,
@@ -38,13 +38,6 @@ module.exports = {
                 loader: "ts",
                 exclude: /node_modules/
             }
-        ],
-        preLoaders: [
-            // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-            {
-                test: /\.js$/,
-                loader: "source-map"
-            }
         ]
     },
     postcss: function () {
@@ -55,7 +48,6 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin()
     ],
 
-    devtool: "inline-source-map",
     devServer: {
         host: "0.0.0.0",
         port: "9988",

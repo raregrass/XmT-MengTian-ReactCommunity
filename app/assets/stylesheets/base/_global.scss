@@ -1,3 +1,9 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
 ::selection {
     background-color: #6ab344;
     color: #fff;

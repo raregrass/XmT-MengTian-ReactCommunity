@@ -10,7 +10,6 @@
     "react-router": "registry:dt/react-router#2.0.0+20160316155526",
     "react-router/history": "registry:dt/react-router/history#2.0.0+20160316155526",
     "redux": "registry:dt/redux#1.0.0+20160317120654",
-    "redux-thunk": "registry:dt/redux-thunk#2.0.1+20160317120654",
-    "swiper": "registry:dt/swiper#2.0.0+20160316155526"
+    "redux-thunk": "registry:dt/redux-thunk#2.0.1+20160317120654"
   }
 }

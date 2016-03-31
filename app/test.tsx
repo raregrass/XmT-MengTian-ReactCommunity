@@ -3,7 +3,7 @@ import {render} from "react-dom";
 import {Router, Route, IndexRoute, browserHistory} from "react-router";
 
 // Main stylesheet.
-import "./assets/stylesheets/main.scss";
+require("./assets/less/main.less");
 
 import {App, Community, Market, Home} from "./components/index";
 
