@@ -13,4 +13,6 @@ var CardProduction_1 = require("./CardProduction");
 exports.CardProduction = CardProduction_1.CardProduction;
 var CardIntroduction_1 = require("./CardIntroduction");
 exports.CardIntroduction = CardIntroduction_1.CardIntroduction;
+var Swipe_1 = require("./Swipe");
+exports.Swipe = Swipe_1.Swipe;
 //# sourceMappingURL=index.js.map

@@ -5,3 +5,4 @@ export {Home} from "./Home";
 export {CardArticle} from "./CardArticle";
 export {CardProduction} from "./CardProduction";
 export {CardIntroduction} from "./CardIntroduction";
+export {Swipe} from "./Swipe";
