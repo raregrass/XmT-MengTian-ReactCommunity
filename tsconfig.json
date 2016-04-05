@@ -1,4 +1,6 @@
 {
+  // Skip emit files compiled by ts.
+  "compileOnSave": false,
   "compilerOptions": {
     "module": "commonjs",
     "moduleResolution": "node",
@@ -6,9 +8,7 @@
     "jsx": "react",
     "sourceMap": true,
     "suppressImplicitAnyIndexErrors": true,
-    "noImplicitReturns": true,
-    // Workaround for Webstorm Typescript check system
-    "outDir": "temp"
+    "noImplicitReturns": true
   },
   "exclude": [
     "typings/browser",

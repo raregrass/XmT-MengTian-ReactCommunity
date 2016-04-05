@@ -10,8 +10,7 @@ import {App, Community, Market, Home} from "./components/index";
 /**********************************************************************************************************************/
 
 
-
-$(document).ready(function() {
+$(document).ready(function(){
     render(
         <Router history={browserHistory}>
             <Route path="/" component={App}>
