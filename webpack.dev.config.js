@@ -25,8 +25,8 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.less$/,
-                loader: "style!css!postcss!less"
+                test: /\.scss/,
+                loader: "style!css!postcss!resolve-url!sass?sourceMap"
             },
             {
                 test: /\.(png|jpg)$/,

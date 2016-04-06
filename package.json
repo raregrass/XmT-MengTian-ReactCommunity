@@ -19,8 +19,8 @@
   },
   "homepage": "https://github.com/raregrass/XmT-React",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.config.js --progress",
-    "build:dev": "webpack --config webpack.config.js --progress --colors",
+    "dev": "webpack-dev-server --config webpack.dev.config.js --progress",
+    "build:dev": "webpack --config webpack.dev.config.js --progress --colors",
     "build:production": "webpack --config webpack.production.config.js --progress --colors"
   },
   "dependencies": {
@@ -36,9 +36,10 @@
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.10.0",
-    "less": "^2.6.1",
-    "less-loader": "^2.2.3",
+    "node-sass": "^3.4.2",
     "postcss-loader": "^0.8.2",
+    "resolve-url-loader": "^1.4.3",
+    "sass-loader": "^3.2.0",
     "source-map-loader": "^0.1.5",
     "style-loader": "^0.13.0",
     "ts-loader": "^0.8.1",
