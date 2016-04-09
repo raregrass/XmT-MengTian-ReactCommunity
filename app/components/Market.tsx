@@ -21,16 +21,13 @@ export class Market extends Component<Props, Stats>{
         )
     }
 
+    private componentDidMount = ()=>{
+        componentHandler.upgradeDom();
+    };
+
     private componentDidUpdate = () =>{
         // This upgrades all upgradable components (i.e. with 'mdl-js-*' className)
         componentHandler.upgradeDom();
-
-        // We could have done this manually for each component
-        /*
-         * var submitButton = this.refs.submit.getDOMNode();
-         * componentHandler.upgradeElement(submitButton, "MaterialButton");
-         * componentHandler.upgradeElement(submitButton, "MaterialRipple");
-         */
     }
 }
 

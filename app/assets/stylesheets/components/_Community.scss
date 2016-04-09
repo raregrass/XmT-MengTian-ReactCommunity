@@ -7,6 +7,13 @@
         flex-direction: column;
         justify-content: space-between;
 
+        img {
+
+            //max-width: 100%;
+            height: auto;
+
+        }
+
         .mdl-card {
             width: 100%;
             max-height: 160px;
@@ -14,6 +21,12 @@
             img {
                 width: 100%;
                 max-height: 160px;
+                /*
+                                max-width: 100%;
+                                height: auto;
+                                display: inline-block;
+                                vertical-align: middle;*/
+
             }
 
             /*.swiper-slide {
@@ -32,10 +45,9 @@
     }
 
     .xmt-swiper-big {
-
         .mdl-card {
             width: 100%;
-            max-height: 480px;
+           // max-height: 480px;
 
             img {
                 width: 100%;
@@ -50,5 +62,9 @@
                 }
             }*/
         }
+    }
+
+    @media all and(max-width: 600px) {
+
     }
 }

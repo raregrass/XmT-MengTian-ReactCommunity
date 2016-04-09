@@ -14,7 +14,7 @@ export class App extends Component<Props, Stats>{
     constructor(){
         super();
     }
-    
+
     public render(){
         return (
             <div className="xmt-app">
@@ -58,8 +58,84 @@ export class App extends Component<Props, Stats>{
                         {/* Main Section */}
                         {this.props.children}
 
-                    </section>
+                        {/* Footer */}
+                        <footer className="xmt-mega-footer mdl-mega-footer">
 
+                            <div className="mdl-mega-footer__top-section">
+
+                                <div className="mdl-mega-footer__left-section">
+                                    <button className="mdl-mega-footer__social-btn"></button>
+                                    <button className="mdl-mega-footer__social-btn"></button>
+                                    <button className="mdl-mega-footer__social-btn"></button>
+                                </div>
+
+                                <div className="mdl-mega-footer__right-section">
+                                    <a className="mdl-typography--font-light" href="#!">Introduction</a>
+                                    <a href="#!">Introduction</a>
+                                    <a href="#!">Introduction</a>
+                                </div>
+
+                            </div>
+
+                            <div className="mdl-mega-footer__middle-section">
+
+                                <div className="mdl-mega-footer__drop-down-section">
+                                    <input className="mdl-mega-footer__heading-checkbox" type="checkbox" defaultChecked/>
+                                    <h1 className="mdl-mega-footer__heading">Features</h1>
+                                    <ul className="mdl-mega-footer__link-list">
+                                        <li><a href="#">About</a></li>
+                                        <li><a href="#">Terms</a></li>
+                                        <li><a href="#">Partners</a></li>
+                                        <li><a href="#">Updates</a></li>
+                                    </ul>
+                                </div>
+
+                                <div className="mdl-mega-footer__drop-down-section">
+                                    <input className="mdl-mega-footer__heading-checkbox" type="checkbox" defaultChecked/>
+                                    <h1 className="mdl-mega-footer__heading">Details</h1>
+                                    <ul className="mdl-mega-footer__link-list">
+                                        <li><a href="#">Specs</a></li>
+                                        <li><a href="#">Tools</a></li>
+                                        <li><a href="#">Resources</a></li>
+                                    </ul>
+                                </div>
+
+                                <div className="mdl-mega-footer__drop-down-section">
+                                    <input className="mdl-mega-footer__heading-checkbox" type="checkbox" defaultChecked/>
+                                    <h1 className="mdl-mega-footer__heading">Technology</h1>
+                                    <ul className="mdl-mega-footer__link-list">
+                                        <li><a href="#">How it works</a></li>
+                                        <li><a href="#">Patterns</a></li>
+                                        <li><a href="#">Usage</a></li>
+                                        <li><a href="#">Products</a></li>
+                                        <li><a href="#">Contracts</a></li>
+                                    </ul>
+                                </div>
+
+                                <div className="mdl-mega-footer__drop-down-section">
+                                    <input className="mdl-mega-footer__heading-checkbox" type="checkbox" defaultChecked/>
+                                    <h1 className="mdl-mega-footer__heading">FAQ</h1>
+                                    <ul className="mdl-mega-footer__link-list">
+                                        <li><a href="#">Questions</a></li>
+                                        <li><a href="#">Answers</a></li>
+                                        <li><a href="#">Contact us</a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                            <div className="mdl-mega-footer__bottom-section">
+                                <div className="mdl-logo">Title</div>
+                                <ul className="mdl-mega-footer__link-list">
+                                    <li><a href="#">Help</a></li>
+                                    <li><a href="#">Privacy & Terms</a></li>
+                                </ul>
+                            </div>
+
+                        </footer>
+
+                    </section>
+                
                 </div>
 
             </div>

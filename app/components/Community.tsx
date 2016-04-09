@@ -18,14 +18,14 @@ export class Community extends Component<Props, Stats>{
 
                 <div className="mdl-grid">
 
-                    <div className="xmt-swiper-big mdl-cell mdl-cell--8-col-desktop mdl-cell--stretch mdl-cell--8-col-tablet">
-                        {this.getSwipe(bigImage)}
+                    <div className="xmt-swiper-list mdl-cell mdl-cell--4-col-desktop mdl-cell--8-col-tablet mdl-cell--hide-phone">
+                        <img src={smallImage}/>
+                        <img src={smallImage}/>
+                        <img src={smallImage}/>
                     </div>
 
-                    <div className="xmt-swiper-list mdl-cell mdl-cell--4-col-desktop mdl-cell--8-col-tablet mdl-cell--hide-phone">
-                        {this.getSwipe(smallImage)}
-                        {this.getSwipe(smallImage)}
-                        {this.getSwipe(smallImage)}
+                    <div className="xmt-swiper-big mdl-cell mdl-cell--8-col-desktop mdl-cell--8-col-tablet ">
+                        {this.getSwipe(bigImage)}
                     </div>
 
                 </div>
