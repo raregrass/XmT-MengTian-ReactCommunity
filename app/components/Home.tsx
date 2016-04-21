@@ -102,9 +102,7 @@ export class Home extends Component<Props, Stats>{
                     </div>
 
                 </div>
-
-                
-
+            
             </div>
         )
     }

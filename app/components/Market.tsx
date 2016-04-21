@@ -14,7 +14,9 @@ export class Market extends Component<Props, Stats>{
             <div className="xmt-market mdl-grid">
 
                 { [0, 1, 2, 3, 4, 5, 6, 7].map((key)=>{
-                    return <CardProduction key={key}/>;
+                    return (
+                        <CardProduction key={key}/>
+                    );
                 }) }
 
             </div>
@@ -24,7 +26,7 @@ export class Market extends Component<Props, Stats>{
     private componentDidMount = ()=>{
         componentHandler.upgradeDom();
     };
-
+    
     private componentDidUpdate = () =>{
         // This upgrades all upgradable components (i.e. with 'mdl-js-*' className)
         componentHandler.upgradeDom();

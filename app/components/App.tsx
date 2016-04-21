@@ -52,13 +52,13 @@ export class App extends Component<Props, Stats>{
 
                     </header>
 
-                    {/* Main Section */}
+                    {/* Sections */}
                     <section className="xmt-main-content mdl-layout__content">
 
                         {/* Main Section */}
                         {this.props.children}
 
-                        {/* Footer */}
+                        {/* Main Footer */}
                         <footer className="xmt-mega-footer mdl-mega-footer">
 
                             <div className="mdl-mega-footer__top-section">
@@ -135,7 +135,7 @@ export class App extends Component<Props, Stats>{
                         </footer>
 
                     </section>
-                
+
                 </div>
 
             </div>
