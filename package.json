@@ -1,10 +1,10 @@
 {
   "name": "xmt-desktop",
   "version": "1.0.0",
-  "description": "",
+  "private": true,
+  "description": "This project is used to make our website controller better",
   "main": "main.js",
   "dependencies": {
-    "less": "^2.7.1",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "react-redux": "^4.4.5",
@@ -13,13 +13,34 @@
     "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
-    "electron-prebuilt": "^1.3.1",
+    "autoprefixer": "^6.4.0",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.22.0",
+    "node-sass": "^3.8.0",
+    "postcss-loader": "^0.10.1",
+    "react-hot-loader": "^1.3.0",
+    "resolve-url-loader": "^1.6.0",
+    "sass-loader": "^4.0.0",
+    "source-map-loader": "^0.1.5",
+    "style-loader": "^0.13.1",
+    "ts-loader": "^0.8.2",
+    "typescript": "^2.1.0-dev.20160817",
     "typings": "^1.3.2",
-    "typescript": "^1.8.9"
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
+    "preinstall": "typings install",
+    "build:dev": "webpack --config webpack-config-dev.js -d",
+    "build:prod": "webpack --config webpack.config.prod.js",
+    "dev": "webpack-dev-server --config webpack-config-dev.js --inline --hot",
+    "build": "webpack --config webpack-config-dev-dummy.js -d --progress --display-chunks --display-reasons --display-modules",
+    "prod": "webpack --config webpack.config.prod.js -d --watch --progress --display-chunks --display-reasons",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "raregrass",
   "license": "ISC"
 }

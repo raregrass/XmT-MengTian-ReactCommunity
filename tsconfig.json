@@ -1,12 +1,18 @@
 {
   "compilerOptions": {
     "module": "commonjs",
+    "moduleResolution": "node",
     "target": "es6",
     "jsx": "react",
     "noImplicitAny": true,
-    "inlineSourceMap": true,
     "sourceMap": true
   },
+  "include": [
+    "src/**/*",
+    "main.ts",
+    "declarations.d.ts",
+    "typings/index.d.ts"
+  ],
   "exclude": [
     "node_modules"
   ]
