@@ -15,7 +15,7 @@ Webpack有大量的特性，有些是"development-only"，有些是"production-o
 ``` javascript
  "script":{
   //npm run build to build production bundles
-  “build”: “webpack --config webpack-config-prod.js”,
+  “build”: “webpack --config webpack-production.js”,
   //npm run dev to generate development bundles and run dev. server
   “dev”: “webpack-dev-server”
  }
@@ -44,7 +44,7 @@ OPTION 2 :
 npm install webpack --save
 //Add it to package.json's script
 “scripts”: {
- “build”: “webpack --config webpack-config-prod.js -p”,
+ “build”: “webpack --config webpack-production.js -p”,
  ...
  }
 //Use it by running the following:

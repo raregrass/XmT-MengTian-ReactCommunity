@@ -1,3 +1,4 @@
+{/*
 import * as React from "react";
 import * as logo from "../images/logo.svg";
 
@@ -5,7 +6,7 @@ interface Props {
 }
 interface Stats {
 }
-export class App extends React.Component<Props, Stats> {
+export class App extends React.Component<any, any> {
     render() {
         return (
             <div className="App">
@@ -21,3 +22,4 @@ export class App extends React.Component<Props, Stats> {
     }
 }
 
+*/}

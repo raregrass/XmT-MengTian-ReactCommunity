@@ -5,9 +5,9 @@ import * as ReactDOM from 'react-dom';
 //import { Provider } from "react-redux";
 //import thunk from "redux-thunk";
 
-import "./styles/index.scss";
+import "stylesRoot/index.scss";
 
-import {App} from "./components/App";
+import {App} from "./components/home";
 
 ReactDOM.render(
     <App />,

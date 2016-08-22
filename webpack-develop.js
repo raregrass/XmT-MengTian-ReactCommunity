@@ -3,41 +3,41 @@
 const path = require("path");
 const webpack = require("webpack");
 
-const PATHS = {
-    root: __dirname,
-    buildDir: path.join(__dirname, "build"),
-    appEntry: path.join(__dirname, "src/main.tsx")
+const Paths = {
+    devBuildOutput: path.join(__dirname, "dev")
 };
 
 module.exports = {
-    entry: [
-        PATHS.appEntry
-    ],
+    entry: path.join(__dirname, "src/ts/main.tsx"),
 
     output: {
-        path: PATHS.buildDir,
-        filename: "bundle.js",
-        publicPath: "/dist/"
+        publicPath: "dev/", // webpack-dev-server 默认将服务目录设置为项目根目录，publicPath 指定到何处加载静态资源。
+
+        path: Paths.devBuildOutput,
+        filename: "js/[name].js",
+        chunkFilename: "js/[id]-chunk.js",
     },
 
     resolve: {
-        extensions: ["", ".js", ".ts", ".tsx", "json", ".scss"],
+        extensions: ["", ".js", ".ts", ".tsx", ".json", ".scss"],
 
         alias: {
-            "appRoot": path.join(__dirname, "app"),
-            "componentsRoot": "appRoot/components"
+            "srcRoot": path.join(__dirname, "src"),
+
+            "imagesRoot": "srcRoot/images",
+            "stylesRoot": "srcRoot/styles",
+            "htmlRoot": "srcRoot/html",
+            "tsRoot": "srcRoot/ts",
+
+            "componentsRoot": "tsRoot/components",
+            "utilitiesRoot": "tsRoot/utilities",
         }
     },
-
-    plugins: [
-
-        // new webpack.NoErrorsPlugin()
-    ],
 
     module: {
         loaders: [
             {
-                // Process scss files.
+                // Process sass files.
                 test: /\.scss$/,
                 loaders: [
                     "style-loader",
@@ -45,29 +45,21 @@ module.exports = {
                     "postcss-loader",
                     "resolve-url-loader",
                     "sass-loader?sourceMap"
-                ]
+                ],
             },
             {
                 // Inline base64 URLs for <=8k images, use direct URLs for the rest.
                 test: /\.(png|jpg|svg)$/,
                 loaders: [
                     "url-loader?limit=8192"
-                ]
+                ],
             },
             {
                 test: /\.tsx?$/,
                 loaders: [
-                    "react-hot-loader",
                     "ts-loader"
                 ],
                 exclude: /node_modules/
-            }
-        ],
-        preLoaders: [
-            // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-            {
-                test: /\.js$/,
-                loader: "source-map-loader"
             }
         ]
     },
@@ -76,6 +68,11 @@ module.exports = {
         "react": "React",
         "react-dom": "ReactDOM"
     },
+
+    plugins: [
+        // new webpack.NoErrorsPlugin()
+        //new ExtractTextPlugin("[name].css")
+    ],
 
     postcss: function () {
         return [require("autoprefixer")];
