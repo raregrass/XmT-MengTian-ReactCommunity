@@ -15,7 +15,7 @@ module.exports = {
 
         path: Paths.devBuildOutput,
         filename: "js/[name].js",
-        chunkFilename: "js/[id]-chunk.js",
+        chunkFilename: "js/[id]-[name]-[hash:5]-chunk.js",
     },
 
     resolve: {
@@ -45,7 +45,7 @@ module.exports = {
                     "postcss-loader",
                     "resolve-url-loader",
                     "sass-loader?sourceMap"
-                ],
+                ]
             },
             {
                 // Inline base64 URLs for <=8k images, use direct URLs for the rest.
@@ -64,17 +64,16 @@ module.exports = {
         ]
     },
 
-    externals: {
-        "react": "React",
-        "react-dom": "ReactDOM"
-    },
-
     plugins: [
         // new webpack.NoErrorsPlugin()
         //new ExtractTextPlugin("[name].css")
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('development')
+        })
     ],
 
     postcss: function () {
         return [require("autoprefixer")];
-    }
+    },
+
 };

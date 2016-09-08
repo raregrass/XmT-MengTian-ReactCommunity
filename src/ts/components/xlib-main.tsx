@@ -1,5 +1,4 @@
 import * as React from "react";
-import * as logo from "imagesRoot/logo.svg";
 
 interface Props {
 }
@@ -10,7 +9,7 @@ export class App extends React.Component<any, any> {
         return (
             <div className="App">
                 <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
+                    <img className="App-logo" alt="logo"/>
                     <h2>Welcome to React</h2>
                 </div>
                 <p className="App-intro">
@@ -21,3 +20,4 @@ export class App extends React.Component<any, any> {
     }
 }
 
+console.log("This is xlib");

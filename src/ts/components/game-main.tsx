@@ -1,6 +1,5 @@
-/*
 import * as React from "react";
-import * as logo from "../images/logo.svg";
+import * as logo from "imagesRoot/logo.svg";
 
 interface Props {
 }
@@ -22,4 +21,6 @@ export class App extends React.Component<any, any> {
     }
 }
 
-*/
+console.log("This is game");
+
+

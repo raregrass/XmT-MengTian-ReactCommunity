@@ -1,11 +1,12 @@
-/*
 import * as React from "react";
+import * as logo from "imagesRoot/logo.svg";
 
 interface Props {
+    title: string;
 }
 interface Stats {
 }
-export class App extends React.Component<any, any> {
+export class App extends React.Component<Props, Stats> {
     render() {
         return (
             <div className="App">
@@ -21,5 +22,5 @@ export class App extends React.Component<any, any> {
     }
 }
 
-
-*/
+console.log("This is home and index");
+console.log(process.versions);

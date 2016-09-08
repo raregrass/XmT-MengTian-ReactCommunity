@@ -9,11 +9,11 @@ module.exports = {
     entry: path.join(__dirname, "src/ts/main.tsx"),
 
     output: {
-        //publicPath: "dist/",
+        //publicPath: "./",
 
         path: path.join(__dirname, "dist"),
         filename: "js/[name]-[hash:5].js",
-        chunkFilename: "js/[id]-chunk-[hash:5].js",
+        chunkFilename: "js/[id]-[name]-chunk-[hash:5].js",
     },
 
     resolve: {
