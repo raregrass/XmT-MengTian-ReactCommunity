@@ -3,57 +3,78 @@
 const path = require("path");
 const webpack = require("webpack");
 
-const Paths = {
-    devBuildOutput: path.join(__dirname, "dev")
-};
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+/**********************************************************************************************************************/
 module.exports = {
-    entry: path.join(__dirname, "src/ts/main.tsx"),
+
+    devtool: "source-map",
+
+    devServer: {
+        colors: true,
+        historyApiFallback: true,
+        inline: true
+    },
+
+    entry: {
+        app: path.resolve(__dirname, "src/ts/main"),
+        /**
+         * 在vendor数组中出现的Module，会结合commonChunksPlugin被提取出来，
+         * 不管有没有引用都会被加入到vendor的打包文件中
+         */
+        vendor: ["react", "react-dom", "react-router"]
+    },
 
     output: {
-        publicPath: "dev/", // webpack-dev-server 默认将服务目录设置为项目根目录，publicPath 指定到何处加载静态资源。
-
-        path: Paths.devBuildOutput,
-        filename: "js/[name].js",
-        chunkFilename: "js/[id]-[name]-[hash:5]-chunk.js",
+        path: path.resolve(__dirname, "dev"),
+        filename: "static/js/[name].js",
     },
 
     resolve: {
-        extensions: ["", ".js", ".ts", ".tsx", ".json", ".scss"],
+        extensions: ["", ".js", ".ts", ".tsx", ".json"],
 
         alias: {
-            "srcRoot": path.join(__dirname, "src"),
+            "src": path.join(__dirname, "src"),
 
-            "imagesRoot": "srcRoot/images",
-            "stylesRoot": "srcRoot/styles",
-            "htmlRoot": "srcRoot/html",
-            "tsRoot": "srcRoot/ts",
+            "media": "src/media",
+            "style": "src/style",
+            "ts": "src/ts",
 
-            "componentsRoot": "tsRoot/components",
-            "utilitiesRoot": "tsRoot/utilities",
+            "component": "ts/component",
         }
     },
 
     module: {
         loaders: [
             {
-                // Process sass files.
-                test: /\.scss$/,
-                loaders: [
-                    "style-loader",
-                    "css-loader?sourceMap",
-                    "postcss-loader",
-                    "resolve-url-loader",
-                    "sass-loader?sourceMap"
-                ]
+                // Process css files.
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract("style", "css?sourceMap", "postcss"),
             },
+
+            // "file" loader makes sure those assets get served by WebpackDevServer.
+            // When you `import` an asset, you get its (virtual) filename.
+            // In production, they would get copied to the `build` folder.
             {
-                // Inline base64 URLs for <=8k images, use direct URLs for the rest.
-                test: /\.(png|jpg|svg)$/,
-                loaders: [
-                    "url-loader?limit=8192"
-                ],
+                test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
+                loader: 'file',
+                query: {
+                    name: 'static/media/[name].[ext]'
+                }
             },
+
+            // "url" loader works just like "file" loader but it also embeds
+            // assets smaller than specified size as data URLs to avoid requests.
+            {
+                test: /\.(mp4|webm|wav|mp3|m4a|aac|oga)(\?.*)?$/,
+                loader: 'url',
+                query: {
+                    limit: 10000,
+                    name: 'static/media/[name].[ext]'
+                }
+            },
+
             {
                 test: /\.tsx?$/,
                 loaders: [
@@ -65,11 +86,33 @@ module.exports = {
     },
 
     plugins: [
-        // new webpack.NoErrorsPlugin()
-        //new ExtractTextPlugin("[name].css")
+        /**
+         * 定义环境变量，使得react等框架库进入开发模式，有更好的提醒
+         */
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('development')
-        })
+        }),
+
+        // This helps ensure the builds are consistent if source hasn't changed:
+        new webpack.optimize.OccurrenceOrderPlugin(),
+
+        /**
+         * 使用html模板文件进行创建
+         */
+        new HtmlWebpackPlugin({
+            template: "src/html/index.html"
+        }),
+
+        /**
+         * 提取引入的css文件
+         */
+        new ExtractTextPlugin("static/css/[name].css"),
+
+        /**
+         * 将vendor的代码从主代码中提取出来，将强缓存效果
+         */
+        new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor",
+            /* filename= */"static/js/[name].js")
     ],
 
     postcss: function () {

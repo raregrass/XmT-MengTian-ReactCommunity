@@ -6,48 +6,65 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-    entry: path.join(__dirname, "src/ts/main.tsx"),
+    entry: {
+        app: path.resolve(__dirname, "src/ts/main"),
+        /**
+         * 在vendor数组中出现的Module，会结合commonChunksPlugin被提取出来，
+         * 不管有没有引用都会被加入到vendor的打包文件中
+         */
+        vendor: ["react", "react-dom", "react-router"]
+    },
 
     output: {
-        //publicPath: "./",
-
-        path: path.join(__dirname, "dist"),
-        filename: "js/[name]-[hash:5].js",
-        chunkFilename: "js/[id]-[name]-chunk-[hash:5].js",
+        path: path.resolve(__dirname, "dist"),
+        filename: "static/js/[name]-[hash:5].js",
+        chunkFilename: "static/js/[id]-chunk-[hash:5].js",
     },
 
     resolve: {
-        extensions: ["", ".js", ".ts", ".tsx", ".json", ".scss"],
+        extensions: ["", ".js", ".ts", ".tsx", ".json"],
 
         alias: {
-            "srcRoot": path.join(__dirname, "src"),
+            "src": path.join(__dirname, "src"),
 
-            "imagesRoot": "srcRoot/images",
-            "stylesRoot": "srcRoot/styles",
-            "templateRoot": "srcRoot/html",
-            "tsRoot": "srcRoot/ts",
+            "media": "src/media",
+            "style": "src/style",
+            "ts": "src/ts",
 
-            "componentsRoot": "tsRoot/components",
-            "utilitiesRoot": "tsRoot/utilities",
+            "component": "ts/component",
         }
     },
 
     module: {
         loaders: [
             {
-                // Process scss files.
-                test: /\.scss$/,
-                loader: ExtractTextPlugin.extract(
-                    "style", "css?sourceMap", "postcss", "resolve-url", "sass?sourceMap"
-                )
+                // Process css files.
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract("style", "css?sourceMap", "postcss"),
             },
+
+            // "file" loader makes sure those assets get served by WebpackDevServer.
+            // When you `import` an asset, you get its (virtual) filename.
+            // In production, they would get copied to the `build` folder.
             {
-                // Inline base64 URLs for <=8k images, use direct URLs for the rest.
-                test: /\.(png|jpg|svg)$/,
-                loaders: [
-                    "url-loader?limit=8196&name=img/[name]-[hash:5].[ext]"
-                ]
+                test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
+                loader: 'file',
+                query: {
+                    name: 'static/media/[name]-[hash:5].[ext]'
+                }
             },
+
+            // "url" loader works just like "file" loader but it also embeds
+            // assets smaller than specified size as data URLs to avoid requests.
+            {
+                test: /\.(mp4|webm|wav|mp3|m4a|aac|oga)(\?.*)?$/,
+                loader: 'url',
+                query: {
+                    limit: 10000,
+                    name: 'static/media/[name]-[hash:5].[ext]'
+                }
+            },
+
             {
                 test: /\.tsx?$/,
                 loaders: [
@@ -58,31 +75,63 @@ module.exports = {
         ]
     },
 
-    externals: {
-        "react": "React",
-        "react-dom": "ReactDOM"
-    },
-
     plugins: [
-        new webpack.BannerPlugin("Copyright by XiaoManTou Inc."),
-        new webpack.optimize.OccurenceOrderPlugin(),
+        /**
+         * 压缩文件
+         */
         new webpack.optimize.UglifyJsPlugin({
-            compress: true,
+            compress: {
+                warnings: false
+            },
             mangle: true,
-            comments: false
+            comments: false,
         }),
-        new ExtractTextPlugin("css/[name]-[hash:5].css"),
+
+        /**
+         * 为生成的文件添加信息头
+         */
+        new webpack.BannerPlugin("Copyright XiaoManTou inc."),
+
+        /**
+         * 定义环境变量，使得react等框架库进入开发模式，有更好的提醒
+         */
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('production')
+        }),
+
+        // This helps ensure the builds are consistent if source hasn't changed:
+        new webpack.optimize.OccurrenceOrderPlugin(),
+
+        /**
+         * 净化冗余模块
+         */
+        new webpack.optimize.DedupePlugin(),
+
+        /**
+         * 使用html模板文件进行创建
+         */
         new HtmlWebpackPlugin({
-            template: "./src/html/index.html",
-            // favicon: "./src/images/favicon.ico",
-            filename: "./index.html",
+            template: "src/html/index.html",
+            // favicon: "src/html/favicon.ico",
+            filename: "index.html",
             inject: "body",
             // hash: true,
             minify: {
                 removeComments: true,
                 collapseWhitespace: false
             }
-        })
+        }),
+
+        /**
+         * 提取引入的css文件
+         */
+        new ExtractTextPlugin("static/css/[name]-[hash:5].css"),
+
+        /**
+         * 将vendor的代码从主代码中提取出来，将强缓存效果
+         */
+        new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor",
+            /* filename= */"static/js/[name]-[hash:5].js")
     ],
 
     postcss: function () {
