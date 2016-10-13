@@ -10,3 +10,4 @@ declare module "media/*"
  */
 //declare module "react"
 //declare module "react-dom"
+declare module "marked"

@@ -18,7 +18,7 @@ module.exports = {
     },
 
     entry: {
-        app: path.resolve(__dirname, "src/ts/main"),
+        app: path.resolve(__dirname, "src/ts/kanban/App"),
         /**
          * 在vendor数组中出现的Module，会结合commonChunksPlugin被提取出来，
          * 不管有没有引用都会被加入到vendor的打包文件中
