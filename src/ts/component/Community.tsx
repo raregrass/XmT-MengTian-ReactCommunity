@@ -1,37 +1,36 @@
-/*
 import * as React from "react";
 
 import {Link, IndexLink} from "react-router";
 
 import * as logo from "media/logo.svg";
 
-/!**********************************************************************************************************************!/
+/**********************************************************************************************************************/
 interface Props {
 }
 interface Stats {
 }
 export class Community extends React.Component<any, any> {
-    constructor() {
-        super();
+    constructor(...args) {
+        super(args);
     }
 
     public render() {
         return (
             <div className="xmt-app">
-                {/!* Wrap the layout used by MDL for preventing the errors from react *!/}
+                {/* Wrap the layout used by MDL for preventing the errors from react */}
 
                 <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-drawer-button ">
 
-                    {/!* Main Header *!/}
+                    {/* Main Header */}
                     <header className="xmt-main-header mdl-layout__header mdl-layout__header-row">
 
-                        {/!* Logo *!/}
+                        {/* Logo */}
                         <img className="xmt-header__logo" src={logo}/>
 
-                        {/!* Add spacer to align navigation menu to the right *!/}
+                        {/* Add spacer to align navigation menu to the right */}
                         <div className="mdl-layout-spacer"></div>
 
-                        {/!* Navigation. We hide it in small screens. *!/}
+                        {/* Navigation. We hide it in small screens. */}
                         <nav className="mdl-navigation mdl-layout--large-screen-only">
                             <IndexLink to="/">
                                 <span className="mdl-navigation__link">首 页</span>
@@ -52,13 +51,13 @@ export class Community extends React.Component<any, any> {
 
                     </header>
 
-                    {/!* Sections *!/}
+                    {/* Sections */}
                     <section className="xmt-main-content mdl-layout__content">
 
-                        {/!* Main Section *!/}
+                        {/* Main Section */}
                         {this.props.children}
 
-                        {/!* Main Footer *!/}
+                        {/* Main Footer */}
                         <footer className="xmt-mega-footer mdl-mega-footer">
 
                             <div className="mdl-mega-footer__top-section">
@@ -153,4 +152,3 @@ export class Community extends React.Component<any, any> {
         // This upgrades all upgradable components (i.e. with 'mdl-js-*' className)
     };
 }
-*/
