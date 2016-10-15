@@ -2,7 +2,7 @@ import * as React from 'react';
 import {render} from 'react-dom';
 import {KanbanBoardContainer} from './KanbanBoardContainer';
 
-import "style/main.css";
+import "../../style/main.css";
 
 render(<KanbanBoardContainer />, document.getElementById("app"));
 
@@ -80,3 +80,4 @@ render(<KanbanBoardContainer />, document.getElementById("app"));
  }
  }
  render(<FocusText/>, document.getElementById("app"));*/
+

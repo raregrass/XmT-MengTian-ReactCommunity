@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CSS: The Missing Manual</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="vendor/normalize/normalize.css">
+
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+<body>
+
+<header class="header">
+
+    <img src="media/logo.svg" class="logo">
+
+    <nav class="nav">
+        <a href="#" class="nav-item">最新文章</a>
+        <a href="#" class="nav-item">热门文章</a>
+        <a href="#" class="nav-item">精品文章</a>
+    </nav>
+
+    <nav class="nav">
+        <a href="#" class="nav-item">我的兴趣</a>
+        <a href="#" class="nav-item">我的收藏</a>
+        <a href="#" class="nav-item">我的邀请</a>
+    </nav>
+
+    <img src="media/logo.svg" class="logo">
+
+</header>
+
+<div class="content">
+
+    <section class="article-section">
+
+        <article class="article">
+
+        </article>
+
+        <article>
+
+        </article>
+
+    </section>
+
+    <aside class="aside">
+
+    </aside>
+
+</div>
+
+<script src="vendor/jquery/jquery-3.1.1.js"></script>
+
+<script>
+
+    let header = $(".header");
+
+    $(window).scroll(function (e) {
+        if ($(this).scrollTop() > 80) {
+            header.addClass("fixed");
+        } else {
+            header.removeClass("fixed");
+        }
+    });
+
+</script>
+
+</body>
+</html>

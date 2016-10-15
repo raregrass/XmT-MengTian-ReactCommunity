@@ -30,5 +30,13 @@ export const cardsList = [
                 done: false
             }
         ]
-    }
+    },
+    {
+        id: 3,
+        title: "Read the Book",
+        description: "I should read the **whole** book",
+        color: "#BD8D31",
+        status: "in-progress",
+        tasks: []
+    },
 ];

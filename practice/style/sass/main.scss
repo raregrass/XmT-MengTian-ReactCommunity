@@ -1,0 +1,96 @@
+body {
+  min-width: 1200px;
+}
+
+/************** Header *****************/
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 100%;
+  height: 5rem;
+  background-color: #fff;
+  color: #333;
+
+  position: fixed;
+  transition: height 1s;
+  &.fixed {
+    height: 3rem;
+  }
+
+  // 添加下部的阴影线
+  box-shadow: 0 1px 10px 1px #bbb;
+
+  .logo {
+    height: 100%;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .nav-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 6rem;
+      height: 3rem;
+      margin: auto 1rem;
+
+      text-decoration: none;
+      font-size: 1.2rem;
+
+      color: #000;
+
+      // 实现动态下划线效果
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        height: 4px;
+        width: 0;
+        background-color: #72c02c;
+        transition: width 0.2s, left 0.2s;
+      }
+      &:hover::after {
+        width: 100%;
+        left: 0;
+      }
+
+      & .active {
+        background-color: #72c02c;
+        color: #fff;
+      }
+
+    }
+
+  }
+
+}
+
+.content {
+  padding-top: 5rem;
+  height: 100rem;
+
+  background-color: gray;
+
+  .article-section {
+
+    .article {
+
+    }
+
+  }
+
+  .aside {
+
+  }
+
+}
+
+
