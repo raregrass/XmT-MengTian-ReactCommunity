@@ -523,23 +523,25 @@
 
 <script>
 
-    let header = $(".header");
+    $(document).ready(()=> {
+        let header = $(".header");
 
-    $(window).scroll((e)=> {
-        if ($(this).scrollTop() > 80) {
-            header.addClass("fixed");
-        } else {
-            header.removeClass("fixed");
-        }
+        $(window).scroll((e)=> {
+            if ($(this).scrollTop() > 80) {
+                header.addClass("fixed");
+            } else {
+                header.removeClass("fixed");
+            }
+        });
+
+        let articleCard = $(".main-container .article-section article .card");
+
+        $(articleCard).hover(function (event) {
+            $(this).siblings(".title").addClass("hover")
+        }, function (event) {
+            $(this).siblings(".title").removeClass("hover")
+        })
     });
-
-    let articleCard = $(".main-container .article-section article .card");
-
-    $(articleCard).hover(function (event) {
-        $(this).siblings(".title").addClass("hover")
-    }, function (event) {
-        $(this).siblings(".title").removeClass("hover")
-    })
 
 </script>
 

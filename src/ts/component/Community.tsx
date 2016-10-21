@@ -10,9 +10,15 @@ interface Stats {
 export class Community extends React.Component<Props, Stats> {
     constructor() {
         super();
+
+        this.state = {
+
+        };
     }
 
     public render() {
+
+
         return (
             <div className="">
 

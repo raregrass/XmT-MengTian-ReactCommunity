@@ -40,7 +40,13 @@ module.exports = {
             {
                 // Process css files.
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract("style", "css?sourceMap", "postcss"),
+                loader: ExtractTextPlugin.extract("style", "css?sourceMap"),
+            },
+
+            // Process scss files.
+            {
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract("style", "css?sourceMap!postcss!resolve-url!sass?sourceMap"),
             },
 
             // "file" loader makes sure those assets get served by WebpackDevServer.
@@ -50,7 +56,7 @@ module.exports = {
                 test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
                 loader: 'file',
                 query: {
-                    name: 'static/media/[name]-[hash:5].[ext]'
+                    name: '/static/media/[name]-[hash:5].[ext]'
                 }
             },
 
