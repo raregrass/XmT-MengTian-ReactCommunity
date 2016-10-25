@@ -1,4 +1,8 @@
 "use strict";
+/**
+ * 使用绝对路径，如Webpack打包到的资源匹配？
+ */
+const AbsolutePathPrefix = "/";
 
 const path = require("path");
 const webpack = require("webpack");
@@ -6,8 +10,8 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const extractStyle_Vendor = new ExtractTextPlugin("static/css/vendor.css");
-const extractStyle_App = new ExtractTextPlugin("static/css/[name].css");
+const extractStyle_Vendor = new ExtractTextPlugin(AbsolutePathPrefix + "static/css/vendor.css");
+const extractStyle_App = new ExtractTextPlugin(AbsolutePathPrefix + "static/css/[name].css");
 
 /**********************************************************************************************************************/
 module.exports = {
@@ -16,7 +20,7 @@ module.exports = {
     devServer: {
         colors: true,
         historyApiFallback: true,
-        inline: true
+        inline: true,
     },
 
     entry: {
@@ -29,8 +33,10 @@ module.exports = {
     },
 
     output: {
+        // publicPath: "/static",
+
         path: path.resolve(__dirname, "dev"),
-        filename: "static/js/[name].js",
+        filename: AbsolutePathPrefix + "static/js/[name].js",
     },
 
     resolve: {
@@ -80,7 +86,7 @@ module.exports = {
                 loader: 'file',
                 query: {
                     // 使用绝对路径，解决font的定位问题
-                    name: '/static/css/[name].[ext]'
+                    name: AbsolutePathPrefix + "static/css/[name].[ext]"
                 }
             },
 
@@ -91,7 +97,7 @@ module.exports = {
                 loader: 'url',
                 query: {
                     limit: 10000,
-                    name: 'static/media/[name].[ext]'
+                    name: AbsolutePathPrefix + "static/media/[name].[ext]"
                 }
             },
 
@@ -133,7 +139,7 @@ module.exports = {
          * 将vendor的代码从主代码中提取出来，将强缓存效果
          */
         new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor",
-            /* filename= */"static/js/[name].js")
+            /* filename= */AbsolutePathPrefix + "static/js/[name].js")
     ],
 
     postcss: function () {

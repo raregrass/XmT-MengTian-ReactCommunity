@@ -1,0 +1,117 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 100%;
+  height: 5rem;
+  background-color: #fff;
+  color: #333;
+
+  z-index: 10;
+  @media (min-width: 1150px) {
+    position: fixed;
+    top: 0;
+
+    transition: height 1s;
+    &.fixed {
+      height: 4rem;
+    }
+  }
+  @media (max-width: 1149px) {
+    position: relative;
+  }
+
+  box-shadow: 0 1px 10px 1px #bbb;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    height: 60%;
+
+    img {
+      display: block;
+      height: 100%;
+    }
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .nav-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      height: 3rem;
+      margin: auto 1rem;
+
+      text-decoration: none;
+
+      color: #000;
+
+      // 实现动态下划线效果
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        height: 4px;
+        width: 0;
+        background-color: #72c02c;
+        transition: width 0.2s, left 0.2s;
+      }
+      &:hover::after {
+        width: 100%;
+        left: 0;
+      }
+
+      & .active {
+        background-color: #72c02c;
+        color: #fff;
+      }
+
+    }
+
+  }
+
+  .user-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 100%;
+
+    .write,
+    .notification {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      height: 3rem;
+      margin: auto 1rem;
+
+      text-decoration: none;
+
+      color: #000;
+    }
+
+    .icon {
+      height: 60%;
+      margin: 0 1rem;
+
+      a {
+        text-decoration: none;
+
+        img {
+          height: 100%;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+
+}

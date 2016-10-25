@@ -1,0 +1,238 @@
+.article-page {
+  @media (min-width: 1150px) {
+    // margin-top导致回到顶端时有缝隙，padding-top则不会
+    padding-top: 80px;
+  }
+
+  display: flex;
+  justify-content: center;
+  background-color: #fafafa;
+
+  .article-list-wrapper {
+
+    .write-tip {
+      width: 42rem;
+      height: 4rem;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      margin: 2rem 0;
+
+      border-left: solid 2px #72c02c;
+      box-shadow: 0 10px 6px -6px #bbb;
+
+      .tip {
+        margin-left: 1rem;
+      }
+
+      .button {
+        display: block;
+        color: #fff;
+        background: #72c02c;
+
+        margin: 0 2rem;
+        padding: 0.4rem 0.6rem;
+
+        text-decoration: none;
+
+        transition: border-radius 0.3s;
+        &:hover {
+          border-radius: 1rem
+        }
+      }
+
+    }
+
+  }
+
+  .aside {
+    padding-left: 1.5rem;
+    width: 25rem;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-content: space-around;
+
+    @media (max-width: 1200px) {
+      display: none;
+    }
+
+    .tag-group {
+      width: 100%;
+
+      .label-container {
+        border-bottom: 1px dotted #e4e9f0;
+
+        label {
+          font-size: 1.2rem;
+          display: block;
+          margin: 0.7rem 0;
+
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            height: 3px;
+            width: 4.8rem;
+            background-color: #72c02c;
+          }
+        }
+      }
+
+      .tag-container {
+        display: flex;
+        flex-flow: row wrap;
+        align-content: space-between;
+        margin: 0.5rem auto;
+
+        .tag {
+          padding: 0.5rem 1rem;
+          background-color: #f4f4f4;
+          margin: 0.1rem;
+          color: #555;
+          font-weight: 500;
+          font-size: 0.8rem;
+          text-decoration: none;
+
+          &:hover {
+            background-color: #72c02c;
+            color: #ffffff !important;
+          }
+        }
+      }
+
+      .article-container {
+        list-style: none;
+        padding-left: 1px;
+        margin: 0;
+
+        .article {
+          padding: 1rem 0;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+          .title {
+            display: inline-block;
+            padding: 0.3rem 0 1rem 0;
+            font-weight: 400;
+            color: #000;
+            text-decoration: none;
+
+            transition: margin-left 0.3s, color 0.3s;
+            &:hover {
+              margin-left: 0.6rem;
+              color: #72c02c;
+            }
+          }
+
+          .social-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .author {
+              text-decoration: underline;
+              color: #ccc;
+              font-size: 14px;
+
+              &:hover {
+                color: #555;
+              }
+            }
+
+            .social-icon-group {
+
+              .icon {
+                text-decoration: none;
+                margin: 0 1rem;
+
+                color: #ccc;
+                font-size: 14px;
+
+                &:hover {
+                  color: #555;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .footer {
+      .logo {
+        img {
+          display: block;
+          margin: 2rem auto 0 auto;
+        }
+      }
+
+      .banner {
+        color: #555;
+        text-align: center;
+        margin-top: 0;
+      }
+
+      .icon-group {
+        display: flex;
+        justify-content: center;
+
+        margin: 2rem 0;
+
+        .icon {
+          margin: 0 0.6rem;
+
+          text-decoration: none;
+          color: #555;
+
+          transition: color 0.2s;
+          &:hover {
+            color: #72c02c;
+          }
+        }
+      }
+
+      .email {
+        margin: 1rem 0;
+
+        color: #555;
+        font-size: 0.9rem;
+        text-align: center;
+
+        a {
+          text-decoration: none;
+          color: #555;
+
+          transition: color 0.2s;
+          &:hover {
+            color: #72c02c;
+          }
+
+        }
+      }
+
+      .copyright {
+        margin: 1rem 0;
+
+        color: #555;
+        font-size: 0.9rem;
+        text-align: center;
+
+        a {
+          text-decoration: none;
+          color: #555;
+
+          transition: color 0.2s;
+          &:hover {
+            color: #72c02c;
+          }
+
+        }
+      }
+
+    }
+  }
+}

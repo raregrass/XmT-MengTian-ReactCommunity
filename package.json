@@ -4,9 +4,12 @@
   "private": true,
   "description": "This project is used to make our website better",
   "dependencies": {
+    "@types/history": "^2.0.39",
     "@types/jquery": "^2.0.0",
     "@types/react": "^0.14.34",
     "@types/react-dom": "^0.14.16",
+    "@types/react-router": "^2.0.38",
+    "classnames": "^2.2.5",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-router": "^2.8.1"

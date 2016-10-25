@@ -1,13 +1,17 @@
 import * as React from "react";
 
-import {ArticleCard} from "./ArticleCard";
+import {ArticleCardList} from "./ArticleCardList";
 
 import * as XmTLogo from "media/aside-big-logo.png";
 
 /**********************************************************************************************************************/
 interface Props {
+    location:{
+        query:any;
+    };
 }
 interface Stats {
+    articleList:any[];
 }
 export class ArticlePage extends React.Component<Props, Stats> {
     constructor() {
@@ -20,28 +24,19 @@ export class ArticlePage extends React.Component<Props, Stats> {
 
     public render() {
 
-        let articleCardList = [];
-        for (let i = 0; i < 10; i++) {
-            articleCardList.push(<ArticleCard key={i}/>);
-        }
-
-
         return (
-            <div className="main-container">
+            <div className="article-page">
 
-                <div className="main-content">
+                <section className="article-list-wrapper">
 
-                    <section className="write-tip">
+                    <div className="write-tip">
                         <div className="tip">今天你要与大家分享些什么呢？</div>
                         <a href="#" className="button">撰写文章</a>
-                    </section>
+                    </div>
 
-                    <section className="article-section">
+                    <ArticleCardList articleList={this.state.articleList}/>
 
-                        {articleCardList}
-
-                    </section>
-                </div>
+                </section>
 
                 <aside className="aside">
 
@@ -232,6 +227,7 @@ export class ArticlePage extends React.Component<Props, Stats> {
                             <a href="http://www.miibeian.gov.cn/">粤ICP备15087531号</a> © 2015 XmT 保留所有权利
                         </div>
                     </div>
+
                 </aside>
 
             </div>
@@ -239,73 +235,43 @@ export class ArticlePage extends React.Component<Props, Stats> {
     }
 
     public componentDidMount = () => {
-        this.setState({
-            articleList: [
-                {
-                    id: 1,
-                    author: "raregrass",
-                    digest: "亲爱的面团儿们： 首先，感谢所有关心我们、没事过来转一转的你。你的足迹是对我们这个小小的团队最大的认可。 随着签约仪式的正式结束，小馒头又完成了一次融资。伴随着融资的进行，我们也完成了艰难的搬家旅程。 之前的我们挤在一间小小的民房里，现在的我们搬到了一间复式的办公楼。短短半年，小馒...",
-                    date: new Date(),
+        let location = this.props.location;
+        console.log(`Mount, query: ${JSON.stringify(location.query)}`);
 
-                    likeCount: 2,
-                    bookmarkCount: 2,
-                    shareCount: 2,
-                },
-                {
-                    id: 2,
-                    author: "raregrass",
-                    digest: "亲爱的面团儿们： 首先，感谢所有关心我们、没事过来转一转的你。你的足迹是对我们这个小小的团队最大的认可。 随着签约仪式的正式结束，小馒头又完成了一次融资。伴随着融资的进行，我们也完成了艰难的搬家旅程。 之前的我们挤在一间小小的民房里，现在的我们搬到了一间复式的办公楼。短短半年，小馒...",
-                    date: new Date(),
-
-                    likeCount: 2,
-                    bookmarkCount: 2,
-                    shareCount: 2,
-                },
-                {
-                    id: 3,
-                    author: "raregrass",
-                    digest: "亲爱的面团儿们： 首先，感谢所有关心我们、没事过来转一转的你。你的足迹是对我们这个小小的团队最大的认可。 随着签约仪式的正式结束，小馒头又完成了一次融资。伴随着融资的进行，我们也完成了艰难的搬家旅程。 之前的我们挤在一间小小的民房里，现在的我们搬到了一间复式的办公楼。短短半年，小馒...",
-                    date: new Date(),
-
-                    likeCount: 2,
-                    bookmarkCount: 2,
-                    shareCount: 2,
-                },
-                {
-                    id: 4,
-                    author: "raregrass",
-                    digest: "亲爱的面团儿们： 首先，感谢所有关心我们、没事过来转一转的你。你的足迹是对我们这个小小的团队最大的认可。 随着签约仪式的正式结束，小馒头又完成了一次融资。伴随着融资的进行，我们也完成了艰难的搬家旅程。 之前的我们挤在一间小小的民房里，现在的我们搬到了一间复式的办公楼。短短半年，小馒...",
-                    date: new Date(),
-
-                    likeCount: 2,
-                    bookmarkCount: 2,
-                    shareCount: 2,
-                },
-                {
-                    id: 5,
-                    author: "raregrass",
-                    digest: "亲爱的面团儿们： 首先，感谢所有关心我们、没事过来转一转的你。你的足迹是对我们这个小小的团队最大的认可。 随着签约仪式的正式结束，小馒头又完成了一次融资。伴随着融资的进行，我们也完成了艰难的搬家旅程。 之前的我们挤在一间小小的民房里，现在的我们搬到了一间复式的办公楼。短短半年，小馒...",
-                    date: new Date(),
-
-                    likeCount: 2,
-                    bookmarkCount: 2,
-                    shareCount: 2,
-                },
-                {
-                    id: 6,
-                    author: "raregrass",
-                    digest: "亲爱的面团儿们： 首先，感谢所有关心我们、没事过来转一转的你。你的足迹是对我们这个小小的团队最大的认可。 随着签约仪式的正式结束，小馒头又完成了一次融资。伴随着融资的进行，我们也完成了艰难的搬家旅程。 之前的我们挤在一间小小的民房里，现在的我们搬到了一间复式的办公楼。短短半年，小馒...",
-                    date: new Date(),
-
-                    likeCount: 2,
-                    bookmarkCount: 2,
-                    shareCount: 2,
-                }
-            ]
-        });
+        this.getArticleList();
     };
 
-    public componentDidUpdate = () => {
-        // This upgrades all upgradable components (i.e. with 'mdl-js-*' className)
+    public componentWillReceiveProps = (nextProps)=> {
+        let location = nextProps.location;
+        console.log(`ReceiveProps query: ${JSON.stringify(location.query)}`);
+
+        this.getArticleList();
     };
+
+    private getArticleList = (sort:"date"|"hot" = "date", filter:{
+        tag?:string;
+        official?:string;
+    } = {})=> {
+
+        let articleList = [];
+        for (let i = 0; i < 10; i++) {
+            articleList.push({
+                id: i,
+                author: "raregrass",
+                date: new Date(),
+                title: "牛逼牛逼牛逼" + i,
+                tagGroup: ["web", "javascript", "IoT"],
+                digest: "亲爱的面团儿们： 首先，感谢所有关心我们、没事过来转一转的你。你的足迹是对我们这个小小的团队最大的认可。 随着签约仪式的正式结束，小馒头又完成了一次融资。伴随着融资的进行，我们也完成了艰难的搬家旅程。 之前的我们挤在一间小小的民房里，现在的我们搬到了一间复式的办公楼。短短半年，小馒...",
+
+                likeCount: i + 2,
+                bookmarkCount: i + 2,
+                shareCount: i + 2,
+            });
+        }
+
+        this.setState(Object.assign(this.state, {
+            articleList: articleList
+        }));
+    };
+
 }

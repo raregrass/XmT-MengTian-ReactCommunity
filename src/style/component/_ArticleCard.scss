@@ -1,0 +1,139 @@
+.article-card {
+  padding: 1rem;
+
+  .title {
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+    font-weight: 800;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+
+    transition: color 0.3s;
+    &.hover {
+      color: #72c02c
+    }
+
+    &:hover {
+      color: #72c02c
+    }
+  }
+
+  .card {
+    width: 40rem;
+
+    transition: box-shadow 0.3s;
+    &:hover {
+      box-shadow: 0 3px 10px #aaaaaa;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding-top: 1rem;
+
+      .left {
+        display: flex;
+
+        margin-left: 1rem;
+
+        .author {
+          display: flex;
+          align-items: center;
+
+          img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+          }
+
+          span {
+            font-size: 0.9rem;
+            margin-left: 0.6rem;
+          }
+
+          color: #555;
+
+          transition: color 0.2s;
+          &:hover {
+            color: #72c02c;
+          }
+        }
+
+        .tag-group {
+          margin-left: 1rem;
+
+          i {
+            color: #777;
+            font-size: 12px;
+          }
+
+          .tag {
+            font-size: 12px;
+            display: inline-block;
+            padding: 3px 7px;
+            background-color: #f4f4f4;
+
+            transition: background-color 0.2s;
+            &:hover {
+              color: #fff;
+              background-color: #72c02c;
+            }
+          }
+
+        }
+      }
+
+      .date {
+        color: rgba(0, 0, 0, 0.44);
+        font-weight: 500;
+        margin-right: 1rem;
+      }
+
+    }
+
+    .content {
+      margin: 2rem 1rem;
+      color: #777;
+      font-weight: 500;
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding-bottom: 1rem;
+
+      .share {
+        color: rgba(0, 0, 0, 0.44);
+        font-size: 14px;
+        margin-left: 1rem;
+      }
+
+      .icon-group {
+        margin-right: 1rem;
+
+        .icon {
+          margin-left: 1rem;
+          font-size: 14px;
+
+          i {
+            margin-right: 1rem;
+            color: rgba(0, 0, 0, 0.44);
+          }
+        }
+
+      }
+
+    }
+  }
+
+  .divider {
+    display: block;
+    border-top: 1px solid #eee;
+    margin-top: 2rem;
+  }
+}

@@ -1,0 +1,141 @@
+.user-page {
+  @media (min-width: 1150px) {
+    // margin-top导致回到顶端时有缝隙，padding-top则不会
+    padding-top: 80px;
+  }
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: #fafafa;
+
+  .big-picture-wrapper {
+    height: 22rem;
+
+    position: relative;
+
+    .big-picture {
+      height: 100%;
+      width: 100%;
+    }
+
+    .big-icon-wrapper {
+      position: absolute;
+      left: 25%;
+      bottom: -50px;
+
+      .big-icon {
+        display: block;
+        height: 150px;
+        width: 150px;
+        border: 5px solid #fff;
+        box-shadow: 0 0 10px #666;
+        border-radius: 50%;
+      }
+
+      .user-name {
+        position: absolute;
+        left: 120%;
+        bottom: 50%;
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+
+        width: 40rem;
+
+        i.fa {
+          margin-left: 20px;
+          color: #6495ED;
+          font-size: 20px;
+        }
+      }
+
+      .reputation {
+        position: absolute;
+        left: 120%;
+        bottom: 16%;
+        color: #333;
+        font-size: 16px;
+        width: 10rem;
+
+        i.fa {
+          margin-right: 16px;
+        }
+      }
+    }
+  }
+
+  .brief-info {
+    display: flex;
+    justify-content: flex-end;
+    height: 6rem;
+    margin: auto;
+    align-items: flex-end;
+    width: 60%;
+
+    .item-wrapper {
+      color: rgba(0, 0, 0, 0.44);
+      font-size: 18px;
+      padding: 0 2rem;
+      border-left: 1px solid #ccc;
+    }
+
+    .item {
+      display: block;
+
+      padding: 0.7rem;
+      color: rgba(0, 0, 0, 0.44);
+
+      &:hover {
+        color: #fff;
+        background-color: #ccc;
+      }
+    }
+  }
+
+  .main-content-wrapper {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 2rem;
+
+    .left-nav {
+      margin-right: 3rem;
+
+      .menu {
+        list-style: none;
+        width: 16rem;
+        margin: 0;
+
+        .item {
+          height: 64px;
+          border-bottom: 1px solid #EEE;
+        }
+
+        .link {
+          border-left: 5px solid transparent;
+          line-height: 64px;
+          color: #515151;
+          font-size: 16px;
+          font-weight: 700;
+          display: block;
+          padding-left: 2rem;
+
+          transition: border-left 0.2s;
+          &:hover {
+            border-left: 5px solid #72c02c;
+          }
+        }
+      }
+
+    }
+
+    .content-wrapper {
+      width: 50rem;
+      height: 40rem;
+      background: #f7f7f7;
+
+    }
+  }
+
+}

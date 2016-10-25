@@ -1,95 +1,110 @@
 import * as React from "react";
-import * as $ from "jquery";
+import {Link} from "react-router";
+import * as classNames from "classnames";
 
-import * as userIcon from "media/header-user-icon-default.jpg";
+import * as userIcon from "media/xyx-icon.jpg";
 
 /**********************************************************************************************************************/
-export interface ArticleCardInfo {
-    author:string;
-    tag:string[];
+export interface ArticleCardData {
+    id:number;
+    author:{
+        id:string;
+        icon:string;
+    };
+    tagGroup:string[];
     date:Date;
+    title:string;
     likeCount:number;
-    favoriteCount:number;
+    bookmarkCount:number;
     shareCount:number;
     digest:string;
 }
 
-interface Props extends ArticleCardInfo {
-
+interface Props extends ArticleCardData {
 }
 interface Stats {
+    isCardHover?:boolean;
+    isAuthorIconHover?:boolean;
 }
-export class ArticleCard extends React.Component<any, any> {
-    constructor() {
-        super();
+export class ArticleCard extends React.Component<Props, Stats> {
+    constructor(props) {
+        super(props);
+
+        /**
+         * this.setState()进行shadow merge,因此不用每次都传入所有的属性
+         */
+        this.state = {
+            isCardHover: false,
+            isAuthorIconHover: false
+        };
     }
 
     public render() {
+        let articleInfo = this.props;
+
+        let titleClassName = classNames({
+            title: true,
+            hover: this.state.isCardHover
+        });
+
         return (
-            <article className="article">
-                <a href="#" className="title">牛逼牛逼超级牛逼</a>
-                <div className="card">
+            <article className="article-card">
+
+                <Link to={"/article/id/" + articleInfo.id} className={titleClassName}>{articleInfo.title}</Link>
+
+                <div className="card"
+                     onMouseEnter={()=>{this.setState({isCardHover: true});}}
+                     onMouseLeave={()=>{this.setState({isCardHover: false});}}>
 
                     <div className="top">
                         <div className="left">
-                            <a href="#" className="author">
+                            <Link to={"/user/id/"+ articleInfo.author.id} className="author">
                                 <img src={userIcon}/>
-                                <span>RareGrass</span>
-                            </a>
+                                <span>{articleInfo.author}</span>
+                            </Link>
                             <div className="tag-group">
                                 <i className="fa fa-tag"></i>
-                                <a href="#" className="tag">web</a>
+                                {articleInfo.tagGroup.map((tag)=> {
+                                    return (
+                                        <Link key={tag}
+                                              to={"/article/list?sort=new&tag="+ tag}
+                                              className="tag">
+                                            {tag}
+                                        </Link>
+                                    )
+                                })}
                             </div>
                         </div>
 
                         <div className="date">
-                            2016 . 4 . 5
+                            {articleInfo.date.getFullYear()} .  {articleInfo.date.getMonth()} .  {articleInfo.date.getDate()}
                         </div>
                     </div>
                     <div className="content">
-                        亲爱的面团儿们： 首先，感谢所有关心我们、没事过来转一转的你。你的足迹是对我们这个小小的团队最大的认可。
-                        随着签约仪式的正式结束，小馒头又完成了一次融资。伴随着融资的进行，我们也完成了艰难的搬家旅程。 之前的我们挤在一间小小的民房里，现在的我们搬到了一间复式的办公楼。短短半年，小馒...
+                        {articleInfo.digest}
                     </div>
                     <div className="bottom">
                         <a href="#" className="share">
                             <i className="fa fa-share"></i>
-                            <span>0</span>人分享
+                            <span>{articleInfo.shareCount}</span>人分享
                         </a>
                         <div className="icon-group">
                             <a href="#" className="icon">
                                 <i className="fa fa-bookmark fa-lg"></i>
-                                <span>1</span>
+                                <span>{articleInfo.bookmarkCount}</span>
                             </a>
                             <a href="#" className="icon">
                                 <i className="fa fa-heart fa-lg"></i>
-                                <span>2</span>
+                                <span>{articleInfo.likeCount}</span>
                             </a>
                         </div>
                     </div>
 
                 </div>
+
                 <i className="divider"></i>
+
             </article>
         )
     }
-
-    public componentDidMount = () => {
-        let articleCard = $(".main-container .article-section article .card");
-
-        $(articleCard).hover(function (event) {
-            $(this).siblings(".title").addClass("hover")
-        }, function (event) {
-            $(this).siblings(".title").removeClass("hover")
-        })
-    };
-
-    public componentDidUpdate = () => {
-        let articleCard = $(".main-container .article-section article .card");
-
-        $(articleCard).hover(function (event) {
-            $(this).siblings(".title").addClass("hover")
-        }, function (event) {
-            $(this).siblings(".title").removeClass("hover")
-        })
-    };
 }

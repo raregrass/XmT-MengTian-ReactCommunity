@@ -8,19 +8,13 @@ interface Props {
 interface Stats {
 }
 export class Community extends React.Component<Props, Stats> {
-    constructor() {
-        super();
-
-        this.state = {
-
-        };
+    constructor(props) {
+        super(props);
     }
 
     public render() {
-
-
         return (
-            <div className="">
+            <div className="community">
 
                 {/* Main Header */}
                 <Header/>

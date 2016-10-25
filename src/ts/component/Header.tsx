@@ -3,7 +3,9 @@ import {IndexLink, Link} from "react-router";
 import * as $ from "jquery";
 
 import * as DGGLogo from "media/header-xmt-logo.png";
-import * as userDefaultIcon from "media/header-user-icon-default.jpg";
+import * as userDefaultIcon from "media/user-icon-default.jpg";
+
+/**********************************************************************************************************************/
 
 export class Header extends React.Component<any,any> {
     constructor() {
@@ -28,9 +30,9 @@ export class Header extends React.Component<any,any> {
 
                 {/* 通用导航栏，对所有用户可见 */}
                 <nav className="nav">
-                    <Link to="/" className="nav-item">最新文章</Link>
-                    <Link to="/hot" className="nav-item">热门文章</Link>
-                    <Link to="/official" className="nav-item">精品文章</Link>
+                    <Link to="/article/list?sort=new" className="nav-item">最新文章</Link>
+                    <Link to="/article/list?sort=hot" className="nav-item">热门文章</Link>
+                    <Link to="/article/list?sort=new&official=t" className="nav-item">精品文章</Link>
                 </nav>
 
                 {/* 特权导航栏，需要验证才可以显示 */}
@@ -49,7 +51,7 @@ export class Header extends React.Component<any,any> {
                     <Link to="/user/editor" className="write">撰写文章</Link>
                     <Link to="/user/notification" className="notification">我的通知</Link>
                     <div className="icon">
-                        <Link to="/user"><img src={userDefaultIcon}/></Link>
+                        <Link to="/user/1234321"><img src={userDefaultIcon}/></Link>
                     </div>
                 </div>
 
@@ -60,7 +62,7 @@ export class Header extends React.Component<any,any> {
     public componentDidMount = () => {
         let header = $(".header");
 
-        $(window).scroll(function (e) {
+        $(window).scroll(function () {
             if ($(this).scrollTop() > 80) {
                 header.addClass("fixed");
             } else {
